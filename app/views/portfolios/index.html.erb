@@ -1,0 +1,19 @@
+<h1>Portfolio Items</h1>
+
+<%= link_to("Create new Item - Url", new_portfolio_url) %>
+<% @portfolio_items.each do |portfolio_item| %>
+<!--  in portfolio_path(portfolio_item) you omit id rails will handle it-->
+<!--  method: :get is aasumed by default so you can also specify delete e.t.c so specifying method: :get is redundant-->
+  <%#= link_to "Show this Portfolio", portfolio_path(portfolio_item), method: :get, data:{confirm: 'Are you sure?'} %>
+<!--  <p><%#= link_to( portfolio_item.title, portfolio_path(portfolio_item)) %></p>-->
+  <p><%= link_to( portfolio_item.title, portfolio_show_path(portfolio_item)) %></p>
+  <p><%= portfolio_item.subtitle %></p>
+  <p><%= portfolio_item.body %></p>
+  <%= image_tag portfolio_item.thumb_image if !portfolio_item.thumb_image.nil? %>
+  <%= link_to("Edit Item", edit_portfolio_path(portfolio_item.id)) %>
+  <%= link_to("Destroy this Portfolio", portfolio_path(portfolio_item), method: :delete, data:{confirm: 'Are you sure?'}) %>
+  <%= link_to "Destroy", portfolio_path(portfolio_item), data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+  } %>
+<% end %>
