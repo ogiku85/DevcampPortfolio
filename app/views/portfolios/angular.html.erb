@@ -1,7 +1,7 @@
-<h1>Portfolio Items</h1>
+<h1>Angular Portfolio Items</h1>
 
 <%= link_to("Create new Item - Url", new_portfolio_url) %>
-<% @portfolio_items.each do |portfolio_item| %>
+<% @angular_portfolio_items.each do |portfolio_item| %>
 <!--  in portfolio_path(portfolio_item) you omit id rails will handle it-->
 <!--  method: :get is aasumed by default so you can also specify delete e.t.c so specifying method: :get is redundant-->
   <%#= link_to "Show this Portfolio", portfolio_path(portfolio_item), method: :get, data:{confirm: 'Are you sure?'} %>
